@@ -62,7 +62,7 @@ public class MovieManagerWithoutParameterTest {
     }
 
     @Test
-    public void findLastDefaultMovieItemTest() {
+    public void findLastMoreDefaultMovieItemTest() {
         manager.addMovie(item1);
         manager.addMovie(item2);
         manager.addMovie(item3);
@@ -72,6 +72,32 @@ public class MovieManagerWithoutParameterTest {
         manager.addMovie(item7);
 
         MovieItem[] expected = {item7, item6, item5, item4, item3};
+        MovieItem[] actual = manager.findLast();
+
+        Assertions.assertArrayEquals(actual, expected);
+    }
+
+    @Test
+    public void findLastLessDefaultMovieItemTest() {
+        manager.addMovie(item1);
+        manager.addMovie(item2);
+        manager.addMovie(item3);
+
+        MovieItem[] expected = {item3, item2, item1};
+        MovieItem[] actual = manager.findLast();
+
+        Assertions.assertArrayEquals(actual, expected);
+    }
+
+    @Test
+    public void findLastEqualDefaultMovieItemTest() {
+        manager.addMovie(item1);
+        manager.addMovie(item2);
+        manager.addMovie(item3);
+        manager.addMovie(item4);
+        manager.addMovie(item5);
+
+        MovieItem[] expected = {item5, item4, item3, item2, item1};
         MovieItem[] actual = manager.findLast();
 
         Assertions.assertArrayEquals(actual, expected);

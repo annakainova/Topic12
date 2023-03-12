@@ -1,9 +1,9 @@
 package ru.netology.poster;
 
 public class MovieItem {
-    public String name;
-    public int year;
-    public String genre;
+    private String name;
+    private int year;
+    private String genre;
 
     public MovieItem(String name, int year, String genre) {
         this.name = name;
